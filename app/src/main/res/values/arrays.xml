@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="short_name">
+        <item>Glide</item>
+        <item>LoadApp</item>
+        <item>Retrofit</item>
+        <item />
+    </string-array>
+    <string-array name="url_list">
+        <item>https://github.com/bumptech/glide/archive/refs/heads/master.zip</item>
+        <item>https://github.com/udacity/nd940-c3-advanced-android-programming-project-starter/archive/refs/heads/master.zip</item>
+        <item>https://github.com/square/retrofit/archive/refs/heads/master.zip</item>
+        <item />
+    </string-array>
+    <string-array name="readme_list">
+        <item>https://raw.githubusercontent.com/bumptech/glide/master/README.md</item>
+        <item>https://raw.githubusercontent.com/udacity/nd940-c3-advanced-android-programming-project-starter/master/README.md</item>
+        <item>https://raw.githubusercontent.com/square/retrofit/master/README.md</item>
+        <item/>
+    </string-array>
+</resources>

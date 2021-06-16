@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.udacity.downloader.viewmodels.MainViewModel" />
+
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/main_app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="240dp"
+            android:theme="@style/AppTheme.AppBarOverlay">
+
+            <androidx.constraintlayout.motion.widget.MotionLayout
+                android:id="@+id/main_motion_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorPrimaryDark"
+                android:minHeight="48dp"
+                app:layoutDescription="@xml/activity_main_scene"
+                app:layout_scrollFlags="scroll|enterAlways|snap|exitUntilCollapsed">
+
+                <ImageView
+                    android:id="@+id/main_download_image"
+                    android:layout_width="240dp"
+                    android:layout_height="240dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_download"
+                    app:tint="@color/colorPrimary"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    android:id="@+id/main_motion_header"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8sp"
+                    android:alpha="0"
+                    android:text="@string/app_name"
+                    android:textColor="@color/white"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+            </androidx.constraintlayout.motion.widget.MotionLayout>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <include
+            android:id="@+id/content_main"
+            layout="@layout/content_main"
+            app:viewModel="@{viewModel}" />
+
+        <com.udacity.downloader.control.LoadingButton
+            android:id="@+id/custom_button"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_gravity="bottom"
+            android:layout_margin="24dp"
+            android:onClick="@{() -> viewModel.downloadClick()}"
+            android:translationY="16dp"
+            app:layout_anchor="@id/custom_url_layout"
+            app:layout_anchorGravity="bottom"
+            app:primaryColor="@color/colorPrimary"
+            app:secondaryColor="@color/colorSecondary" />
+
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

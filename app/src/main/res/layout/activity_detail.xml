@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.udacity.downloader.viewmodels.DetailViewModel" />
+
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".DetailActivity">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/detail_app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="240dp"
+            android:theme="@style/AppTheme.AppBarOverlay">
+
+            <androidx.constraintlayout.motion.widget.MotionLayout
+                android:id="@+id/detail_motion_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorPrimaryDark"
+                android:minHeight="48dp"
+                app:layoutDescription="@xml/activity_detail_scene"
+                app:layout_scrollFlags="scroll|enterAlways|snap|exitUntilCollapsed">
+
+                <ImageView
+                    android:id="@+id/detail_file_image"
+                    android:layout_width="240dp"
+                    android:layout_height="240dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_file"
+                    app:tint="@color/colorPrimary"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    android:id="@+id/detail_motion_header"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8sp"
+                    android:alpha="0"
+                    android:text="@string/details"
+                    android:textColor="@color/white"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+            </androidx.constraintlayout.motion.widget.MotionLayout>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <include
+            android:id="@+id/content_layout"
+            layout="@layout/content_detail"
+            app:objectData="@{viewmodel.objectInfo}"/>
+
+        <Button
+            android:id="@+id/detail_ok_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="24dp"
+            android:background="@color/colorAccent"
+            android:text="@string/ok_button"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:translationY="16dp"
+            app:layout_anchor="@id/info_text"
+            app:layout_anchorGravity="bottom" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>
